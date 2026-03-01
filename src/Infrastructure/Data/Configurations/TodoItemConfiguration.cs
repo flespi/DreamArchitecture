@@ -1,0 +1,17 @@
+﻿using CleanArchitecture.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace CleanArchitecture.Infrastructure.Data.Configurations;
+
+public class TodoItemConfiguration : IEntityTypeConfiguration<TodoItem>
+{
+    public void Configure(EntityTypeBuilder<TodoItem> builder)
+    {
+        builder.HasGuidKey(e => e.Id);
+
+        builder.Property(e => e.Title)
+            .HasMaxLength(200)
+            .IsRequired();
+    }
+}

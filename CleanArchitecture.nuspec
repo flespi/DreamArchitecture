@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+
+    <id>Dream.Architecture.Solution.Template</id>
+    <version>1.0.0</version>
+    <title>Dream Architecture Solution Template</title>
+    <authors>flespi</authors>
+    <description>Clean Architecture Solution Template for .NET</description>
+    <summary>
+      A Clean Architecture Solution Template for creating apps using ASP.NET Core.
+    </summary>
+    <releaseNotes>
+      🎉 Initial release
+    </releaseNotes>
+
+    <projectUrl>https://github.com/flespi/DreamArchitecture</projectUrl>
+    <repository type="git" url="https://github.com/flespi/DreamArchitecture" branch="main" />
+
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>clean-architecture project template csharp dotnet</tags>
+    <icon>icon.png</icon>
+    <readme>README.md</readme>
+
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+
+  </metadata>
+
+  <files>
+    <file src=".template.config\icon.png" />
+    <file src="README.md" />
+    <file src=".\**" target="content" exclude="**\node_modules\**;**\tools\**;**\bin\**;**\obj\**;.\.vs\**;.\.vscode\**;**\ClientApp\dist\**;**\ClientApp\.angular\**;**\wwwroot\dist\**;content\Directory.Build.*;.\.git\**;.\.github\workflows\jekyll-gh-pages.yml;.\.github\workflows\release.yml;.\.github\workflows\codeql.yml;.\.github\workflows\build.yml;.\.github\ISSUE_TEMPLATE\**;.\.github\icon.png;.\.github\FUNDING.yml;.\CODE_OF_CONDUCT.md;.\LICENSE;.\README.md;.\CleanArchitecture.nuspec;.\src\Graph\app.db;.\renovate.json;" />
+  </files>
+
+</package>

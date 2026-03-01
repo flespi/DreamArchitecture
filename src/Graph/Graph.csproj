@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>CleanArchitecture.Graph</RootNamespace>
+    <AssemblyName>CleanArchitecture.Graph</AssemblyName>
+    <UserSecretsId>4c53e5a0-6a3a-4bfb-9ac0-385c169e26e7</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Graph.Schema\Graph.Schema.csproj" />
+    <ProjectReference Include="..\Graph.DataLoaders\Graph.DataLoaders.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <Target Name="ExportSchema" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' And '$(SkipExportSchema)' != 'True' ">
+    <Exec ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(ProjectDir)" Command="dotnet run --no-build -e DRY_RUN=true -- schema export --output $(SolutionDir)schema.graphql">
+      <Output TaskParameter="ExitCode" PropertyName="ExportSchemaExitCode" />
+      <Output TaskParameter="ConsoleOutput" PropertyName="ExportSchemaOutput" />
+    </Exec>
+
+    <Message Text="$(ExportSchemaOutput)" Condition="'$(ExportSchemaExitCode)' == '0'" Importance="low" />
+    <Error Text="$(ExportSchemaOutput)" Condition="'$(ExportSchemaExitCode)' != '0'" />
+  </Target>
+
+</Project>

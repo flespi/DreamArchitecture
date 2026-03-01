@@ -1,0 +1,12 @@
+mutation DeleteTodoList($input: DeleteTodoListInput!) {
+  deleteTodoList(input: $input) {
+    todoList {
+      id
+      title
+      colour
+      items {
+        title
+      }
+    }
+  }
+}

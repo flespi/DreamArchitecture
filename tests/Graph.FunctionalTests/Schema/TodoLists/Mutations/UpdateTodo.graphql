@@ -1,0 +1,12 @@
+mutation UpdateTodoList($input: UpdateTodoListInput!) {
+  updateTodoList(input: $input) {
+    todoList {
+      id
+      title
+      colour
+      items {
+        title
+      }
+    }
+  }
+}

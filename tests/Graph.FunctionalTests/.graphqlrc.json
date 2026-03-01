@@ -1,0 +1,21 @@
+{
+  "schema": "../../schema.graphql",
+  "documents": "**/*.graphql",
+  "extensions": {
+    "strawberryShake": {
+      "name": "GraphClient",
+      "namespace": "CleanArchitecture.Graph.FunctionalTests",
+      "url": "http://localhost:5095/graphql/",
+      "records": {
+        "inputs": false,
+        "entities": false
+      },
+      "transportProfiles": [
+        {
+          "default": "Http",
+          "subscription": "WebSocket"
+        }
+      ]
+    }
+  }
+}

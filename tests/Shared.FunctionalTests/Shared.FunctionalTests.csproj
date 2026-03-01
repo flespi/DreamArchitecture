@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>CleanArchitecture.Shared.FunctionalTests</RootNamespace>
+    <AssemblyName>CleanArchitecture.Shared.FunctionalTests</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="Microsoft.Data.SqlClient" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Respawn" />
+    <PackageReference Include="TestContainers" />
+    <PackageReference Include="xunit.v3" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,10 @@
+query GetTodoListById($id: ID!) {
+  todoListById(id: $id) {
+    id
+    title
+    colour
+    items {
+      title
+    }
+  }
+}

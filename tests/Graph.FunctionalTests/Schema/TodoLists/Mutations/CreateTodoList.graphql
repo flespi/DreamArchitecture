@@ -1,0 +1,12 @@
+mutation CreateTodoList($input: CreateTodoListInput!) {
+  createTodoList(input: $input) {
+    todoList {
+      id
+      title
+      colour
+      items {
+        title
+      }
+    }
+  }
+}

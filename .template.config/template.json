@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "flespi",
+  "classifications": [
+    "Web",
+    "ASP.NET",
+    "Clean Architecture"
+  ],
+  "name": "Dream Architecture Solution",
+  "description": "A Clean Architecture Solution Template for creating apps using ASP.NET Core.",
+  "identity": "Dream.Architecture.Solution.CSharp",
+  "groupIdentity": "Dream.Architecture.Solution",
+  "shortName": "da-sln",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "CleanArchitecture",
+  "preferNameDirectory": true,
+  "symbols": {
+    "caPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "caPackageVersion",
+      "parameters": {
+        "value": "1.0.0"
+      }
+    },
+    "caRepositoryUrl": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "caRepositoryUrl",
+      "parameters": {
+        "value": "https://github.com/flespi/DreamArchitecture"
+      }
+    }
+  },
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        ".github/**/*",
+        ".template.config/**/*",
+        "templates/**/*",
+        "**/*.filelist",
+        "**/*.user",
+        "*.nuspec",
+        "schema.graphql"
+      ],
+      "rename": {
+        "README-template.md": "README.md"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Mono
+        run: sudo apt update && sudo apt install -y mono-complete
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v2
+        with:
+          nuget-version: 'latest'
+      - name: Pack
+        run: nuget pack CleanArchitecture.nuspec -NoDefaultExcludes
+      - name: Publish
+        run: nuget push *.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}} -SkipDuplicate

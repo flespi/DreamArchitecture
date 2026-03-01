@@ -1,0 +1,12 @@
+query GetTodoLists {
+  todoLists {
+    nodes {
+      id
+      title
+      colour
+      items {
+        title
+      }
+    }
+  }
+}
