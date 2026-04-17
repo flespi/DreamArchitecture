@@ -3,7 +3,7 @@
   <metadata>
 
     <id>Dream.Architecture.Solution.Template</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <title>Dream Architecture Solution Template</title>
     <authors>flespi</authors>
     <description>Clean Architecture Solution Template for .NET</description>
@@ -11,7 +11,8 @@
       A Clean Architecture Solution Template for creating apps using ASP.NET Core.
     </summary>
     <releaseNotes>
-      🎉 Initial release
+      ✨ Add comparison operators to ValueObject
+      ⬆️ Upgrade dependencies
     </releaseNotes>
 
     <projectUrl>https://github.com/flespi/DreamArchitecture</projectUrl>

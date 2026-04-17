@@ -23,7 +23,7 @@
       "generator": "constant",
       "replaces": "caPackageVersion",
       "parameters": {
-        "value": "1.0.0"
+        "value": "1.1.0"
       }
     },
     "caRepositoryUrl": {
