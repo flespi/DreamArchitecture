@@ -4,7 +4,7 @@ using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Graph.Schema.TodoLists.FilterInputs;
 using CleanArchitecture.Graph.Schema.TodoLists.SortInputs;
 using HotChocolate.Authorization;
-using HotChocolate.Execution.Processing;
+using HotChocolate.Execution;
 using HotChocolate.Types.Pagination;
 
 namespace CleanArchitecture.Graph.Operations.Queries;

@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="GreenDonut.Abstractions" />
-    <PackageReference Include="HotChocolate.Execution" />
+    <PackageReference Include="HotChocolate.Types" />
     <PackageReference Include="HotChocolate.Types.Analyzers">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

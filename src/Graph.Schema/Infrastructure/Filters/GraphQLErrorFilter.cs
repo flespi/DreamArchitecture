@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Application.Common.Exceptions;
+using HotChocolate.Execution;
 
 namespace CleanArchitecture.Graph.Infrastructure.Filters;
 
