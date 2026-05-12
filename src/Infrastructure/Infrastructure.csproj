@@ -11,6 +11,10 @@
     <PackageReference Include="EFSeeder" />
     <PackageReference Include="GreenDonut.Data.EntityFramework" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
@@ -20,6 +24,7 @@
     <PackageReference Include="Orca.AspNetCore" />
     <PackageReference Include="Orca.Caching" />
     <PackageReference Include="Orca.Store.EntityFrameworkCore" />
+    <PackageReference Include="System.CommandLine" />
   </ItemGroup>
 
   <ItemGroup>

@@ -55,6 +55,7 @@
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="StrawberryShake" Version="$(HotChocolateVersion)" />
     <PackageVersion Include="StrawberryShake.Server" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="System.CommandLine" Version="2.0.5" />
     <PackageVersion Include="System.Configuration.ConfigurationManager" Version="10.0.6" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
     <PackageVersion Include="Testcontainers" Version="4.9.0" />
