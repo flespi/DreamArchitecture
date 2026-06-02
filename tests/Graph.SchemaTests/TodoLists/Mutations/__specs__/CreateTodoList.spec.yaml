@@ -1,0 +1,31 @@
+name: CreateTodoList
+
+document:
+  kind: file
+  path: CreateTodoList.graphql
+
+identity:
+  - type: sub
+    value:  test
+  - type: name
+    value:  test
+
+variables: {
+  "input": {
+    "data": {
+      "title": "Shoping"
+    }
+  }
+}
+
+snapshot:
+  kind: inline
+  spec: {
+    "data": {
+      "createTodoList": {
+        "todoList": {
+          "title": "Shoping"
+        }
+      }
+    }
+  }

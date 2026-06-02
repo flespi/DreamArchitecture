@@ -1,0 +1,7 @@
+query GetTodoLists {
+  todoLists {
+    nodes {
+      title
+    }
+  }
+}

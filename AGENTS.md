@@ -37,7 +37,8 @@ Guidelines for working with this codebase.
 | **Domain.UnitTests** | Entities, Value Objects, Business rules, Invariants |
 | **Application.UnitTests** | Component behavior, Validation rules, Pipeline behaviors |
 | **Application.FunctionalTests** | Commands/Queries execution, Handler validation |
-| **Graph.FunctionalTests** | GraphQL queries/mutations, API responses |
+| **Graph.FunctionalTests** | GraphQL queries/mutations, Operation results |
+| **Graph.SchemaTests** | GraphQL queries/mutations, Operation results |
 | **Infrastructure.IntegrationTests** | Data persistence, External service integrations |
 
 ---
@@ -474,6 +475,40 @@ public class GetTodosTests : BaseTest
         response.IsSuccessResult().ShouldBeTrue();
     }
 }
+```
+
+### Graph Schema Tests
+
+```yaml
+name: CreateTodoList
+
+document:
+  kind: inline
+  spec: |
+    mutation CreateTodoList($input: CreateTodoListInput!) {
+      createTodoList(input: $input) {
+        todoList {
+          title
+        }
+      }
+    }
+
+identity:
+  sub: test
+  name: test
+
+variables:
+  input:
+    data:
+      title: "Shoping"
+
+snapshot:
+  kind: inline
+  spec:
+    data:
+      createTodoList:
+        todoList:
+          title: "Shoping"
 ```
 
 ### Base Class Helpers

@@ -1,0 +1,25 @@
+name: GetTodoLists
+
+document:
+  kind: file
+  path: GetTodoLists.graphql
+
+identity:
+  - type: sub
+    value:  test
+  - type: name
+    value:  test
+
+snapshot:
+  kind: inline
+  spec: {
+    "data": {
+      "todoLists": {
+        "nodes": [
+          {
+            "title": "Todo List"
+          }
+        ]
+      }
+    }
+  }

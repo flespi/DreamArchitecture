@@ -11,6 +11,9 @@
   <ItemGroup>
     <PackageVersion Include="Ardalis.GuardClauses" Version="5.0.0" />
     <PackageVersion Include="coverlet.collector" Version="10.0.0" />
+    <PackageVersion Include="CookieCrumble" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="CookieCrumble.HotChocolate" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="CookieCrumble.Xunit3" Version="$(HotChocolateVersion)" />
     <PackageVersion Include="EFSeeder" Version="1.2.1" />
     <PackageVersion Include="EntityStitching" Version="1.0.0" />
     <PackageVersion Include="EntityStitching.EntityFrameworkCore" Version="1.0.0" />
@@ -37,6 +40,7 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(EfcoreVersion)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(EfcoreVersion)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EfcoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="$(EfcoreVersion)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(EfcoreVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsVersion)" />
@@ -52,6 +56,7 @@
     <PackageVersion Include="Orca.Caching" Version="$(OrcaVersion)" />
     <PackageVersion Include="Orca.Store.EntityFrameworkCore" Version="$(OrcaVersion)" />
     <PackageVersion Include="Respawn" Version="7.0.0" />
+    <PackageVersion Include="Pampa.CookieCrumble.Spec" Version="2.0.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="StrawberryShake" Version="$(HotChocolateVersion)" />
     <PackageVersion Include="StrawberryShake.Server" Version="$(HotChocolateVersion)" />

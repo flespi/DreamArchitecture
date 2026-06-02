@@ -23,6 +23,7 @@
     <Project Path="tests/Application.UnitTests/Application.UnitTests.csproj" />
     <Project Path="tests/Domain.UnitTests/Domain.UnitTests.csproj" />
     <Project Path="tests/Graph.FunctionalTests/Graph.FunctionalTests.csproj" />
+    <Project Path="tests/Graph.SchemaTests/Graph.SchemaTests.csproj" />
     <Project Path="tests/Infrastructure.IntegrationTests/Infrastructure.IntegrationTests.csproj" />
   </Folder>
 </Solution>
