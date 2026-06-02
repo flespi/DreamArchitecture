@@ -24,6 +24,5 @@
     <Project Path="tests/Domain.UnitTests/Domain.UnitTests.csproj" />
     <Project Path="tests/Graph.FunctionalTests/Graph.FunctionalTests.csproj" />
     <Project Path="tests/Infrastructure.IntegrationTests/Infrastructure.IntegrationTests.csproj" />
-    <Project Path="tests/Shared.FunctionalTests/Shared.FunctionalTests.csproj" />
   </Folder>
 </Solution>

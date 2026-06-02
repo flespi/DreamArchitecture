@@ -29,7 +29,14 @@ public class EFUnitOfWork : IUnitOfWork
 
     public virtual async Task<ITransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
-        var transaction = await DbContext.Database.BeginTransactionAsync(cancellationToken);
-        return new EFTransaction(transaction);
+        if (DbContext.Database.IsRelational())
+        {
+            var transaction = await DbContext.Database.BeginTransactionAsync(cancellationToken);
+            return new EFTransaction(transaction);
+        }
+        else
+        {
+            return new FakeTransaction();
+        }
     }
 }

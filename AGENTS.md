@@ -432,15 +432,19 @@ public class ValidationExceptionTests
 {
     [Fact]
     public void DefaultConstructorCreatesAnEmptyErrorDictionary()
-        => new ValidationException().Errors.Keys.ShouldBeEmpty();
+    {
+        new ValidationException().Errors.Keys.ShouldBeEmpty();
+    }
 }
 ```
 
 ### Application Functional Tests
 
 ```csharp
-public class CreateTodoListTests : WebApplicationTest
+public class CreateTodoListTests : BaseTest
 {
+    public CreateTodoListTests(AppTestContext context) : base(context) { }
+
     [Fact]
     public async Task ShouldCreateTodoList()
     {
@@ -458,9 +462,9 @@ public class CreateTodoListTests : WebApplicationTest
 ### Graph Functional Tests
 
 ```csharp
-public class GetTodosTests : WebApplicationTest
+public class GetTodosTests : BaseTest
 {
-    public GetTodosTests(WebApplicationContext context) : base(context) { }
+    public GetTodosTests(AppTestContext context) : base(context) { }
 
     [Fact]
     public async Task ShouldReturnAllLists()

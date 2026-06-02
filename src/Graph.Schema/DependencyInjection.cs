@@ -6,11 +6,11 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddGraphServices(this IServiceCollection services, Action<IRequestExecutorBuilder>? builderAction = null)
+    public static void AddGraphServices(this IServiceCollection services, out IRequestExecutorBuilder builder)
     {
-        var builder = services
+        builder = services
             .AddGraphQLServer()
-            .AddGrapgQLTypes()
+            .AddGraphQLTypes()
 
             // Authorization
             .AddAuthorization()
@@ -30,12 +30,15 @@ public static class DependencyInjection
             // Infrastructure (interceptors, filters, etc.)
             .AddHttpRequestInterceptor<IdempotentRequestInterceptor>()
             .AddErrorFilter<GraphQLErrorFilter>();
+    }
+
+    public static void AddGraphServices(this IServiceCollection services, Action<IRequestExecutorBuilder>? builderAction = null)
+    {
+        AddGraphServices(services, out var builder);
 
         if (builderAction is not null)
         {
             builderAction(builder);
         }
-
-        return services;
     }
 }

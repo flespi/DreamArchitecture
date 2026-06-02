@@ -1,1 +1,1 @@
-[assembly: Module("GrapgQLTypes")]
+[assembly: Module("GraphQLTypes")]

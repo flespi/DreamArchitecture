@@ -7,9 +7,9 @@ using Shouldly;
 
 namespace CleanArchitecture.Application.FunctionalTests.TodoItems.Commands;
 
-public class UpdateTodoItemDetailTests : WebApplicationTest
+public class UpdateTodoItemDetailTests : BaseTest
 {
-    public UpdateTodoItemDetailTests(WebApplicationContext context) : base(context)
+    public UpdateTodoItemDetailTests(AppTestContext context) : base(context)
     {
     }
 

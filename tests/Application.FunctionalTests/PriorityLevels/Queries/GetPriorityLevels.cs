@@ -2,9 +2,9 @@
 
 namespace CleanArchitecture.Application.FunctionalTests.PriorityLevels.Queries;
 
-public class GetPriorityLevelsTests : WebApplicationTest
+public class GetPriorityLevelsTests : BaseTest
 {
-    public GetPriorityLevelsTests(WebApplicationContext context) : base(context)
+    public GetPriorityLevelsTests(AppTestContext context) : base(context)
     {
     }
 

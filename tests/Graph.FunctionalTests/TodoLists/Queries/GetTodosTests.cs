@@ -2,9 +2,9 @@
 
 namespace CleanArchitecture.Graph.FunctionalTests.TodoLists.Queries;
 
-public class GetTodosTests : WebApplicationTest
+public class GetTodosTests : BaseTest
 {
-    public GetTodosTests(WebApplicationContext context) : base(context)
+    public GetTodosTests(AppTestContext context) : base(context)
     {
     }
 

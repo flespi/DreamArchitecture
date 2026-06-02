@@ -4,7 +4,7 @@ Tests for the **Graph** layer, focused on validating use cases through GraphQL q
 
 ## Responsibilities
 - Execute GraphQL queries and mutations
-- Validate API responses
+- Validate operation results
 - Verify resolver behavior
 - Ensure correct mapping to Application use cases
 

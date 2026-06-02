@@ -5,9 +5,9 @@ using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.FunctionalTests.TodoLists.Commands;
 
-public class DeleteTodoListTests : WebApplicationTest
+public class DeleteTodoListTests : BaseTest
 {
-    public DeleteTodoListTests(WebApplicationContext context) : base(context)
+    public DeleteTodoListTests(AppTestContext context) : base(context)
     {
     }
 

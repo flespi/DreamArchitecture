@@ -1,68 +1,30 @@
-﻿using DotNet.Testcontainers.Containers;
-using EFSeeder;
-using CleanArchitecture.Infrastructure.Data;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 
 namespace CleanArchitecture.Graph.FunctionalTests;
 
 public class WebApplicationFactory : WebApplicationFactory<Program>
 {
-    private readonly IDatabaseContainer _container;
+    private readonly Action<IWebHostBuilder>? _builderOptions;
 
-    public WebApplicationFactory(IDatabaseContainer container)
+    private WebApplicationFactory()
     {
-        _container = container;
+    }
+
+    private WebApplicationFactory(Action<IWebHostBuilder> builderConfiguration)
+    {
+        _builderOptions = builderConfiguration;
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.ConfigureTestServices(services => ConfigureTestServices(services));
+        if (_builderOptions is not null)
+        {
+            _builderOptions(builder);
+        }
     }
 
-    private void ConfigureTestServices(IServiceCollection services)
-    {
-        services
-            .RemoveAll<DbContextOptions<ApplicationDbContext>>()
-            .AddDbContext<ApplicationDbContext>((sp, options) =>
-            {
-                var connectionString = _container.GetConnectionString();
-                var interceptors = sp.GetServices<ISaveChangesInterceptor>();
+    public static WebApplicationFactory Create() => new();
 
-                var seeder = sp.GetRequiredService<DbContextSeeder<ApplicationDbContext>>();
-
-                options
-                    .UseSqlServer(connectionString)
-                    .AddInterceptors(interceptors)
-                    .UseAsyncSeeding(seeder);
-            });
-
-        services
-            .RemoveAll<IOptions<JwtBearerOptions>>()
-            .AddOptions<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme)
-            .PostConfigure(options =>
-            {
-                options.TokenValidationParameters.NameClaimType = "name";
-                options.TokenValidationParameters.RoleClaimType = "role";
-
-                options.MapInboundClaims = false;
-
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    IssuerSigningKey = JwtHelper.SigningKey,
-
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ValidateLifetime = true,
-                };
-            });
-    }
+    public static WebApplicationFactory Create(Action<IWebHostBuilder> options) => new(options);
 }
