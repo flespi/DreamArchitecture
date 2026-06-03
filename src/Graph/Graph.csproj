@@ -17,18 +17,4 @@
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-  </PropertyGroup>
-
-  <Target Name="ExportSchema" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' And '$(SkipExportSchema)' != 'True' ">
-    <Exec ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(ProjectDir)" Command="dotnet run --no-build -e DRY_RUN=true -- schema export --output $(ProjectDir)../../schema.graphql">
-      <Output TaskParameter="ExitCode" PropertyName="ExportSchemaExitCode" />
-      <Output TaskParameter="ConsoleOutput" PropertyName="ExportSchemaOutput" />
-    </Exec>
-
-    <Message Text="$(ExportSchemaOutput)" Condition="'$(ExportSchemaExitCode)' == '0'" Importance="low" />
-    <Error Text="$(ExportSchemaOutput)" Condition="'$(ExportSchemaExitCode)' != '0'" />
-  </Target>
-
 </Project>

@@ -37,7 +37,6 @@ Guidelines for working with this codebase.
 | **Domain.UnitTests** | Entities, Value Objects, Business rules, Invariants |
 | **Application.UnitTests** | Component behavior, Validation rules, Pipeline behaviors |
 | **Application.FunctionalTests** | Commands/Queries execution, Handler validation |
-| **Graph.FunctionalTests** | GraphQL queries/mutations, Operation results |
 | **Graph.SchemaTests** | GraphQL queries/mutations, Operation results |
 | **Infrastructure.IntegrationTests** | Data persistence, External service integrations |
 
@@ -456,23 +455,6 @@ public class CreateTodoListTests : BaseTest
         result.ShouldNotBeNull();
         result!.Title.ShouldBe("Tasks");
         result.Audit.CreatedBy.ShouldBe(userId);
-    }
-}
-```
-
-### Graph Functional Tests
-
-```csharp
-public class GetTodosTests : BaseTest
-{
-    public GetTodosTests(AppTestContext context) : base(context) { }
-
-    [Fact]
-    public async Task ShouldReturnAllLists()
-    {
-        await RunAsDefaultUserAsync();
-        var response = await Client.GetTodoLists.ExecuteAsync(TestContext.Current.CancellationToken);
-        response.IsSuccessResult().ShouldBeTrue();
     }
 }
 ```
