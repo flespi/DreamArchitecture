@@ -18,15 +18,14 @@ public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
     {
         DispatchDomainEvents(eventData.Context).GetAwaiter().GetResult();
 
-        return base.SavingChanges(eventData, result);
-
+        return result;
     }
 
     public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
     {
         await DispatchDomainEvents(eventData.Context);
 
-        return await base.SavingChangesAsync(eventData, result, cancellationToken);
+        return result;
     }
 
     public async Task DispatchDomainEvents(DbContext? context)
@@ -45,6 +44,8 @@ public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
         entities.ToList().ForEach(e => e.ClearDomainEvents());
 
         foreach (var domainEvent in domainEvents)
+        {
             await _mediator.Publish(domainEvent);
+        }
     }
 }
