@@ -8,7 +8,7 @@ namespace CleanArchitecture.Infrastructure.Cache;
 
 internal static class HybridCacheSerializerFactory
 {
-    public static readonly IHybridCacheSerializerFactory Json;
+    public static IHybridCacheSerializerFactory Json { get; }
 
     static HybridCacheSerializerFactory()
     {
