@@ -14,6 +14,8 @@ public class CreateTodoItemTests : BaseTest
     [Fact]
     public async Task ShouldRequireMinimumFields()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         var command = new AddTodoListItemCommand
         {
             ListId = Guid.NewGuid(),

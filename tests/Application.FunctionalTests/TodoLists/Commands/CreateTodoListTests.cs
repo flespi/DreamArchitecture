@@ -13,6 +13,8 @@ public class CreateTodoListTests : BaseTest
     [Fact]
     public async Task ShouldRequireMinimumFields()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         var command = new CreateTodoListCommand
         {
             Data = new()
@@ -27,6 +29,8 @@ public class CreateTodoListTests : BaseTest
     [Fact]
     public async Task ShouldRequireUniqueTitle()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         await SendAsync(new CreateTodoListCommand
         {
             Data = new()

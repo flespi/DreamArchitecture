@@ -16,6 +16,8 @@ public class UpdateTodoItemDetailTests : BaseTest
     [Fact]
     public async Task ShouldRequireValidTodoItemId()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         var command = new EditTodoListItemCommand
         {
             ListId = Guid.Empty,

@@ -14,6 +14,8 @@ public class DeleteTodoListTests : BaseTest
     [Fact]
     public async Task ShouldRequireValidTodoListId()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         var command = new DeleteTodoListCommand { Id = Guid.Empty };
         await Should.ThrowAsync<NotFoundException>(() => SendAsync(command));
     }
@@ -21,6 +23,8 @@ public class DeleteTodoListTests : BaseTest
     [Fact]
     public async Task ShouldDeleteTodoList()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         var list = await SendAsync(new CreateTodoListCommand
         {
             Data = new()

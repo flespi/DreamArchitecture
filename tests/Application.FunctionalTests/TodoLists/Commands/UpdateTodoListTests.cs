@@ -15,6 +15,8 @@ public class UpdateTodoListTests : BaseTest
     [Fact]
     public async Task ShouldRequireValidTodoListId()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         var command = new UpdateTodoListCommand
         {
             Id = Guid.Empty,
@@ -30,6 +32,8 @@ public class UpdateTodoListTests : BaseTest
     [Fact]
     public async Task ShouldRequireUniqueTitle()
     {
+        var userId = await RunAsDefaultUserAsync();
+
         CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
 
         var list = await SendAsync(new CreateTodoListCommand
