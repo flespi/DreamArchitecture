@@ -32,7 +32,10 @@ public class AppTestContext : IAppTestContext
 
     private IAsyncEcoLifetime CreateTestDatabase(out IDatabaseContainer container)
     {
-        container = new MsSqlBuilder().Build();
+        const string image = "mcr.microsoft.com/mssql/server";
+        const string tag = "2022-CU26-ubuntu-22.04";
+
+        container = new MsSqlBuilder($"{image}:{tag}").Build();
 
         return new DatabaseSnapshotBuilder()
             .WithOptions(new()
