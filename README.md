@@ -24,7 +24,7 @@ dotnet new da-sln -o YourProjectName
 
 - ASP.NET Core
 - Entity Framework Core
-- HotChocolate, GreenDonut, StrawberryShake
+- HotChocolate, GreenDonut
 - MediatR
 - FluentValidation
 - xUnit, Shouldly, Moq & Respawn
