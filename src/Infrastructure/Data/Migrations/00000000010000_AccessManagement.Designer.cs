@@ -301,13 +301,15 @@ namespace CleanArchitecture.Infrastructure.Migrations
                                 .HasColumnType("datetimeoffset");
 
                             b1.Property<string>("CreatedBy")
-                                .HasColumnType("nvarchar(max)");
+                                .IsRequired()
+                                .HasColumnType("nvarchar(200)");
 
                             b1.Property<DateTimeOffset>("LastModified")
                                 .HasColumnType("datetimeoffset");
 
                             b1.Property<string>("LastModifiedBy")
-                                .HasColumnType("nvarchar(max)");
+                                .IsRequired()
+                                .HasColumnType("nvarchar(200)");
 
                             b1.HasKey("TodoListId");
 

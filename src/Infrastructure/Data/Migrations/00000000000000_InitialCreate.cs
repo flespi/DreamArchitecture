@@ -30,9 +30,9 @@ namespace CleanArchitecture.Infrastructure.Migrations
                     Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Colour_Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Audit_Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    Audit_CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Audit_CreatedBy = table.Column<string>(type: "nvarchar(200)", nullable: false),
                     Audit_LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    Audit_LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Audit_LastModifiedBy = table.Column<string>(type: "nvarchar(200)", nullable: false),
                     ConcurrencyToken = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>

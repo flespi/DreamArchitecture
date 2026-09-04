@@ -10,14 +10,14 @@ public class TodoListConfiguration : IEntityTypeConfiguration<TodoList>
     {
         builder.HasGuidKey(e => e.Id);
 
-        builder.HasConcurrencyToken();
-
         builder.Property(e => e.Title)
             .HasMaxLength(200)
             .IsRequired();
 
         builder.OwnsOne(e => e.Colour);
 
-        builder.OwnsOne(e => e.Audit);
+        builder.OwnsOne(e => e.Audit, new AuditabilityConfiguration<TodoList>());
+
+        builder.HasConcurrencyToken(e => e.ConcurrencyToken);
     }
 }
