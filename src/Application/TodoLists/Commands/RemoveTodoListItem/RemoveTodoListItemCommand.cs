@@ -1,10 +1,12 @@
-﻿using CleanArchitecture.Application.Common.Processing;
-using CleanArchitecture.Application.Common.Data;
+﻿using CleanArchitecture.Application.Common.Data;
+using CleanArchitecture.Application.Common.Processing;
+using CleanArchitecture.Application.Common.Security;
 using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Domain.Events;
 
 namespace CleanArchitecture.Application.TodoLists.Commands.RemoveTodoListItem;
 
+[Authorize]
 [Transactional]
 public record RemoveTodoListItemCommand : IRequest<TodoItem>
 {

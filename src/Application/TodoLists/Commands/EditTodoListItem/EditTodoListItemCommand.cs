@@ -1,11 +1,13 @@
-﻿using CleanArchitecture.Application.Common.Processing;
-using CleanArchitecture.Application.Common.Data;
+﻿using CleanArchitecture.Application.Common.Data;
 using CleanArchitecture.Application.Common.Exceptions;
+using CleanArchitecture.Application.Common.Processing;
+using CleanArchitecture.Application.Common.Security;
 using CleanArchitecture.Application.TodoLists.Commands.Shared;
 using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.TodoLists.Commands.EditTodoListItem;
 
+[Authorize]
 [Transactional]
 public record EditTodoListItemCommand : IRequest<TodoItem>
 {

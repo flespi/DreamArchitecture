@@ -1,9 +1,11 @@
-﻿using CleanArchitecture.Application.Common.Processing;
-using CleanArchitecture.Application.Common.Data;
+﻿using CleanArchitecture.Application.Common.Data;
+using CleanArchitecture.Application.Common.Processing;
+using CleanArchitecture.Application.Common.Security;
 using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.TodoLists.Commands.DeleteTodoList;
 
+[Authorize]
 [Transactional]
 public record DeleteTodoListCommand : IRequest<TodoList>
 {

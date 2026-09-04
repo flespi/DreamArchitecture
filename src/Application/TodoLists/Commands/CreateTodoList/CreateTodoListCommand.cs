@@ -1,10 +1,12 @@
-﻿using CleanArchitecture.Application.Common.Processing;
-using CleanArchitecture.Application.Common.Data;
+﻿using CleanArchitecture.Application.Common.Data;
+using CleanArchitecture.Application.Common.Processing;
+using CleanArchitecture.Application.Common.Security;
 using CleanArchitecture.Application.TodoLists.Commands.Shared;
 using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
 
+[Authorize]
 [Idempotent]
 [Transactional]
 public record CreateTodoListCommand : IRequest<TodoList>
