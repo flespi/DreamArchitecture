@@ -3,7 +3,7 @@
   <metadata>
 
     <id>Dream.Architecture.Solution.Template</id>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
     <title>Dream Architecture Solution Template</title>
     <authors>flespi</authors>
     <description>Clean Architecture Solution Template for .NET</description>
@@ -11,7 +11,10 @@
       A Clean Architecture Solution Template for creating apps using ASP.NET Core.
     </summary>
     <releaseNotes>
-      🐛 Fix concurrency exception handling
+      🌱 Use default user for data seeding
+      🗃️ Add owned entity config
+      🛂 Add auth policy to commands
+      ⬆️ Upgrade dependencies
     </releaseNotes>
 
     <projectUrl>https://github.com/flespi/DreamArchitecture</projectUrl>
